@@ -1,4 +1,4 @@
-body{
+  body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,9 +12,9 @@ body{
   height: fit-content;
   display: block;
   margin: 30px auto;
-}
+} 
 
-.card-container{
+ .card-container{
   display: grid;
   grid-template-columns: auto auto auto;
   padding:  0 40px;
@@ -30,9 +30,9 @@ body{
 .card:hover{
   box-shadow: 1px 0.1px 5px 4px #39468f;
   transition: 0.3s;
-}
+} 
 
-.title{
+ .title{
   font-weight: bold;
   font-size: 23px;
   letter-spacing: 1px;
@@ -45,7 +45,7 @@ body{
 }
 
 .opening-crawl{
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -92,8 +92,3 @@ body{
   }
 
 }
-
-
-
-
-

@@ -1,14 +1,16 @@
 import Cards from './components/Cards'
-import Starwarssvg from './components/Starwarssvg'
+import { Routes, Route } from "react-router-dom";
+import Details from './components/Details'
 
 function App() {
-  
-
   return (
-    <div className="App">
-      <Starwarssvg />
-      <Cards />
-    </div>
+      <Routes>
+        <Route path="/" element={<Cards />} />
+        <Route path="/:title" element={<Details />} />
+        
+      </Routes> 
+     
+    
   )
 }
 
