@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Starwarssvg from './Starwarssvg'
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 const Cards = () => {
     const [data, setData] = useState(null);
@@ -11,7 +11,7 @@ const Cards = () => {
     useEffect(() => {
         const getData = async () => {
           try {
-            const response = await axios.get(`https://swapi.dev/api/films`);
+            const response = await axios.get(`https://swapi.dev/api/films/`);
             setData(response.data.results);
             setError(null);
           } catch (err) {
@@ -47,12 +47,13 @@ const Cards = () => {
                         <p className='when'>{new Date(movies.release_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
                         <p className='opening-crawl'>{reduceLength(movies.opening_crawl, 260)}</p>
                         <hr/>
-                        <Link to={`/${movies.title}`}><p className='info'>More info</p></Link>
+                        <Link to={`details/${episode_id}`}><p className='info'>More info</p></Link>
                     </div>
                   </div>
               )
           })}
       </div>
+      
     </div>
   )
 }
