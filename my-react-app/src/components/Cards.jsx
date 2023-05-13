@@ -13,6 +13,7 @@ const Cards = () => {
           try {
             const response = await axios.get(`https://swapi.dev/api/films/`);
             setData(response.data.results);
+            console.log(response.data)
             setError(null);
           } catch (err) {
             setError(err.message);
@@ -41,13 +42,24 @@ const Cards = () => {
       <div className='card-container'>
           {data && data.map(function(movies){
               return (
-                  <div className='card'>
+                  <div key = {movies.id} className='card'>
                     <div key = {movies.id}>
                       <h3 className='title'>{movies.title}</h3>
                         <p className='when'>{new Date(movies.release_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
                         <p className='opening-crawl'>{reduceLength(movies.opening_crawl, 260)}</p>
                         <hr/>
-                        <Link to={`details/${episode_id}`}><p className='info'>More info</p></Link>
+                        <Link 
+                        style={{ textDecoration: "none" }}
+                        to={`/movie/${movies.id}`} 
+                        state={{
+                          title: movies.title, 
+                          description: movies.opening_crawl,
+                          producer: movies.producer,
+                          director: movies.director,
+                          characters: movies.characters
+                        }}>
+                          <p className='info'>More info</p>
+                        </Link>
                     </div>
                   </div>
               )
